@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Question Paper</title>
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    /> -->
+
+    <!-- jQuery library -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!-- <script>
+      // console.log("Form is not sending");
+      // $(document).ready(function(event) {
+        // event.preventDefault;
+        // $("form").on("submit", function(event) {
+        //   console.log("Form sent");
+        //   $.ajax({
+        //     data: {
+        //       semester: $("#semester").val(),
+        //       branch: $("branch").val()
+        //     },
+        //     type: "POST",
+        //     url: "/process"
+        //   }).done(function(data) {
+        //     $("#output")
+        //       .text(data.output)
+        //       .show();
+        //   });
+        // event.preventDefault();
+      // });
+      //});
+      //   var examform = $(".form-question-ajax");
+      //   examform.submit(function(event) {
+      //     // event.preventDefault();
+      //     console.log("Form is not sending");
+      //     var thisForm = $(this);
+      //     var actionEndpoint = thisForm.attr("action");
+      //     var httpMethod = thisForm.attr("method");
+      //     var formData = thisForm.serialize();
+
+      //     $.ajax({
+      //       url: actionEndpoint,
+      //       method: httpMethod,
+      //       data: formData,
+      //       success: function(data) {
+      //         console.log("success");
+      //         console.log(data);
+      //       },
+      //       error: function(errorData) {
+      //         console.log("error");
+      //         console.log(errorData);
+      //       }
+      //     });
+      //   });
+      // });
+    // </script>-->
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Home</a>
+    </nav>
+    <script>
+      var data={{datas|safe}}
+    </script>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Home</a>
+    </nav>
+
+    <div></div>
+
+    <center>
+      <br /><br />
+      <div class="container">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col">
+            <p class="h2 text-uppercase mb- text-center text-info">
+              Question Paper
+            </p>
+
+            <br />
+            <form method="POST" class="form-question-ajax">
+              {% csrf_token %}
+              <div class="form-group">
+                Branch Name :
+                <!-- <select name="branch" id="branch" required>
+                  <option value="Computer Science and Engineering"
+                    >Computer Science and Engineering</option
+                  >
+                  <option value="Information Science and Engineering"
+                    >Information Science and Engineering</option
+                  >
+                </select> -->
+                <select
+                  name="branch"
+                  id="branch"
+                  required
+                  oninput="myfunction()"
+                >
+                  <!-- {% for element in data %}
+                  <option value="{{ element.branch }}"
+                    >"{{ element.branch }}"</option
+                  >
+                  {% endfor %} -->
+                  <option value="none">None</option>
+                  <option value="ISE">ISE</option>
+                  <option value="CSE">CSE</option>
+                  <option value="ECE">ECE</option>
+                  <option value="Civil">Civil</option>
+                  <option value="Mech">Mech</option>
+                  <!-- <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option> -->
+                </select>
+              </div>
+              <br />
+              <div class="form-group">
+                Semester :
+                <select name="semester" id="semester" oninput="myfunction()">
+                  <option value="none">None</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                </select>
+              </div>
+              <br />
+
+              <div class="form-group">
+                <!-- Subject Code : -->
+                Subject ID :
+                <!-- <select name="branch" id="branch" required>
+                  <option value="ACC">ACC</option>
+                  <option value="FCP">FCP</option>
+                  <option value="DS">DS</option>
+                  <option value="OOPS">OOPS</option>
+                  <option value="OS">OS</option>
+                  <option value="SE">SE</option>
+                  <option value="CNS">CNS</option>
+                  <option value="ANN">ANN</option>
+                </select> -->
+                <!-- <select name="sub_code" id="sub_code"> -->
+                <select name="sub_ids" id="sub_ids">
+                  <!-- {% for element in data %} -->
+                  <!-- {% if element.branch %} {% if
+                  element.semester %} -->
+                  <!-- <option value="{{ element.sub_code }}"
+                    >"{{ element.sub_name }}"</option
+                  >
+                   {% endif %} -->
+                  <!-- {% endfor %}
+                </select>
+              </div> -->
+                  <!--  <div class="form-group">
+                 <a
+                  class="btn btn-primary"
+                  type="submit"
+                  name="submit"
+                  id="submit"
+                  value="submit"
+                  href="{% url 'questionpaper' %}"
+                > -->
+
+                  <!-- Create -->
+                  <!-- </a> -->
+                </select>
+              </div>
+              <br />
+              <div>
+                <input class="btn btn-primary" type="submit" name="submit" />
+              </div>
+            </form>
+          </div>
+          <div class="col"></div>
+          <!-- </div> -->
+        </div>
+      </div>
+      <br />
+      <p id="sudo"></p>
+      <p id="sudo1"></p>
+    </center>
+    <script>
+      //var val = {{ data1 }};
+      //datas="{{data1}}"
+      function myfunction() {
+        console.log("VD");
+        // document.getElementById("sub_code").innerHTML = "";
+        document.getElementById("sub_ids").innerHTML = "";
+        var x = document.getElementById("branch").value;
+        var y = document.getElementById("semester").value;
+        document.getElementById("sudo").innerHTML = "Selected Branch : " + x;
+        document.getElementById("sudo1").innerHTML = "Selected Semester : " + y;
+
+        // var a = document.getElementById("sub_code");
+        var a = document.getElementById("sub_ids");
+        console.log(x);
+        console.log(y);
+        var count = 0;
+
+        for (i = 0; i < {{length}}; i++) {
+          var opt = document.createElement("option");
+
+          console.log(data[i]);
+          if (
+            data[i]["fields"].branch == x &&
+            data[i]["fields"].semester == y
+          ) {
+            //opt.text = data[i]["fields"].sub_name;
+            //opt.innerHTML = count;
+            p = document.createTextNode(data[i]["fields"].sub_name);
+            //opt.appendChild(document.create)
+            opt.value = data[i]["fields"].sub_name;
+            opt.appendChild(p);
+            //a.appendChild(opt);
+            a.add(opt, a[count]);
+            console.log(a);
+            console.log("fffffffffffffffffffffffffffffffffffffffffffffffffff");
+            console.log(a);
+            count = count + 1;
+          }
+          console.log("count =" + count);
+        }
+
+        //for(i=0;i<4;i++)
+        //{
+        //console.log("{{data1.branch}}")
+        //}
+        //console.log(datas[0]);
+        //console.log(datas[0].branch);
+        //
+        // console.log(x);
+        // console.log(y);
+        // console.log(data.branch);
+      }
+    </script>
+  </body>
+</html>

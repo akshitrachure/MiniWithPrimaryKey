@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Evaluator 1</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+  <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+    input[type=number]
+    {
+        width: 80%;
+        padding: 10px 10px;
+        margin: 8px 10px;
+        box-sizing: border-box;
+    }
+    #FinalTotal
+    {
+        width: 6%;
+    }
+    
+    </style>
+</head>
+<script>
+
+var ques={{json|safe}}
+//var ques= {{dat|safe}}
+function mine(){
+    x=0;
+  //  var x = event.keyCode;
+  //  if (x == 9){ 
+           // ques[y]['fields'].sqno
+        for(y=0;y<10;y++)
+        {
+            // console.log(data2[i]['fields'].sqno)
+            ks=ques[y]['fields'].sqno;
+            // v=y+1;
+            console.log(typeof ks)
+            console.log(x);
+            x++;
+            display1(ks,x,y+1);
+            console.log("after");
+        }
+        /*for(i=0;i<10;i++)
+        {
+            console.log(ques[i]['fields'].qno)
+            console.log(ques[i]['fields'].sqno)
+            console.log(ques[i]['fields'].a)
+            console.log(ques[i]['fields'].b)
+            console.log(ques[i]['fields'].c)
+            console.log(ques[i]['fields'].d)
+            
+        }*/
+    //}
+}
+function display1(r,k,l)
+{
+        console.log("Entered")
+        // a=document.createElement("div");
+        //a=document.getElementById("demo"+k);
+        // console.log("demo"+k)
+        // a.setAttribute("id","demo"+k);
+        // a.setAttribute("class","col-xs-1");
+        for(i=0;i<r;i++){
+            a=document.getElementById("td"+k+(i+1));
+           // var newlabel = document.createElement("Label");
+            // newlabel.setAttribute("for",id_from_input);
+            // newlabel.innerHTML = "Here goes the text";
+            // parentDiv.appendChild(newlabel);
+            //a=document.getElementById("demo"+k);
+            // a=document.getElementById("demo"+k);
+            // console.log("a is as follows")
+            // console.log(a);
+           // a=document.getElementById("demo1");
+            
+            //a.appendChild(b1);
+            b=document.createElement("input");
+            b.setAttribute("type","number");
+            b.setAttribute("id","q"+(l-1)+(i+1));
+            b.setAttribute("name","q"+(l-1)+(i+1));
+            console.log("aohdoihao"+"           "+typeof ("q"+(l-1)+(i+1)))
+            b.setAttribute("class","form-control");
+            //b.setAttribute("class","col-xs-1")
+           // b.setAttribute("min","1");
+            
+            if(i==0)
+            {
+                b.setAttribute("value",0);
+                b.setAttribute("max",ques[l-1]['fields'].a);            
+            }                    
+            else if(i==1)
+            {
+                //b.setAttribute("placeholder",data2[l-1]['fields'].b);
+                b.setAttribute("value",0);
+                b.setAttribute("max",ques[l-1]['fields'].b);
+            }                    
+            else if(i==2)
+            {
+                //b.setAttribute("placeholder",data2[l-1]['fields'].c);
+                b.setAttribute("value",0);
+                b.setAttribute("max",ques[l-1]['fields'].c);
+            }                    
+            else
+            {
+               // b.setAttribute("placeholder",data2[l-1]['fields'].d);  
+                b.setAttribute("value",0);
+                b.setAttribute("max",ques[l-1]['fields'].d);
+            }                    
+            b.setAttribute("maxlength","2"); 
+            console.log("b is as follows") 
+            console.log(b) 
+            a.appendChild(b); 
+            
+            if(i==r-1)
+            {
+                tot=document.getElementById("td"+k+"5");
+                w=document.createElement("input")
+                w.setAttribute("id","Total"+(k))
+                w.setAttribute("type","number")
+                w.setAttribute("name","Total"+(k))
+                w.setAttribute("class","form-control")
+               // w.setAttribute("class","col-xs-1")
+                w.setAttribute("maxlength","2")
+                w.setAttribute("max","20")
+                w.setAttribute("tabindex","-1")
+                w.setAttribute("onfocus","this.blur()")
+                //w.setAttribute("placeholder","Total"+(k))
+                w.setAttribute("value",0);
+                w.setAttribute("readonly","true")
+                tot.appendChild(w)
+                if(k%2==0)
+                {
+                    mt=document.getElementById("td"+k+"6")
+                    t=document.createElement("input")
+                    t.setAttribute("id","maxtotal"+(k/2))
+                    t.setAttribute("type","number")
+                    t.setAttribute("name","maxtotal"+(k/2))
+                    t.setAttribute("class","form-control")
+                    //t.setAttribute("class","col-xs-1")
+                    t.setAttribute("maxlength","2")
+                    t.setAttribute("max","20")
+                    t.setAttribute("tabindex","-1")
+                    t.setAttribute("onfocus","this.blur()")
+                    t.setAttribute("readonly","true")
+                    //t.setAttribute("placeholder","MT"+(k/2))
+                    t.setAttribute("value",0);
+                    // t.setAttribute("readonly")
+                    mt.appendChild(t)
+                }
+                if(k==10)
+                {
+                    la=document.getElementById("final")
+                    t1=document.createElement("input")
+                    t1.setAttribute("id","FinalTotal")
+                    t1.setAttribute("type","number")
+                    t1.setAttribute("name","FinalTotal")
+                    t1.setAttribute("class","form-control");
+                   // t1.setAttribute("class","col-xs-1")
+                    t1.setAttribute("tabindex","-1")
+                    t1.setAttribute("onfocus","this.blur()")
+                    t1.setAttribute("maxlength","3")
+                    t1.setAttribute("readonly","true")
+                    t1.setAttribute("max","100")
+                    t1.setAttribute("value",0);
+                    //t1.setAttribute("visibility","false")
+                    //t1.setAttribute("placeholder","FinalTotal")
+                    la.appendChild(t1)
+                }    
+            // var s1="        ";
+            // var val1=str.concat(s1,toString(data2[l-1]['fields'].a))
+            }
+            if((i+1)==1)
+                document.getElementById('th'+k+(i+1)).innerHTML = ques[l-1]['fields'].a;                
+            else if((i+1)==2)
+                document.getElementById('th'+k+(i+1)).innerHTML = ques[l-1]['fields'].b;                
+            else if((i+1)==3)
+                document.getElementById('th'+k+(i+1)).innerHTML = ques[l-1]['fields'].c;
+            else
+                document.getElementById('th'+k+(i+1)).innerHTML = ques[l-1]['fields'].d;                                  
+        }
+        
+}
+//function myFunction(event){
+    //     //data1=list(data1);
+    //     var x = event.keyCode;
+    //     if (x == 9){  // 27 is the ESC key
+    //        alert("hiii akshit");
+    //        var a=document.getElementById("tab").value;
+    //        //document.getElementById("demo").innerHTML=a;
+    //       // sum=sum+
+
+
+    //        //console.log(a.getAttribute("placeholder"));
+    //     }
+    // }
+    
+//var data3={{json|safe}}
+count = [0,0,0,0,0,0,0,0,0,0]
+
+function getItem(xx,qno,a)
+{
+    total=Number(0);
+    //for(y=1;y<5;y++){}
+        //console.log(xx+y)
+        //var k=parseInt(26);
+        // a=30;
+        console.log(typeof xx);
+        count[qno]=1;
+        for(m=1;m<=ques[a]['fields'].sqno;m++)
+        {
+            l=document.getElementById(xx+m).value;
+            x =Number(l);
+            console.log(typeof (x));
+            console.log(x);
+            total=total+x;
+            console.log(" Total = "+total);
+            document.getElementById("Total"+qno).value = Number(total);
+        }
+        if(qno%2==0)
+            {
+                if(count[qno-1]==0)
+                {
+                    document.getElementById("maxtotal"+(qno/2)).value = Number(total);//document.getElementById("Total"+qno).value;
+                    //ftotal = ftotal+Number(document.getElementById("maxtotal"+(qno/2)).value);
+                }
+                else
+                {
+                    var x1=Number(document.getElementById("Total"+(qno-1)).value);
+                    console.log("zzzzzz"+"Total"+(qno-1));
+                    if(total > x1)
+                        document.getElementById("maxtotal"+(qno/2)).value = Number(total);
+                    else
+                        document.getElementById("maxtotal"+(qno/2)).value = Number(x1);
+                    //ftotal = ftotal + Number(document.getElementById("maxtotal"+(qno/2)).value);
+                }   
+            }
+            else
+            {
+                if(count[qno+1]==0)
+                {
+                    //console.log("qno = " )
+                    b=parseInt((parseInt(qno/2))+1);
+                    document.getElementById("maxtotal"+(b)).value = Number(document.getElementById("Total"+qno).value);
+                   // ftotal = ftotal + Number(document.getElementById("maxtotal"+(b)).value);
+                   console.log("meeeeeee"+"     "+ parseInt(document.getElementById("maxtotal"+(b)).value));
+                }
+                else
+                {
+                    b=parseInt((parseInt(qno/2))+1);
+                    x1=Number(document.getElementById("Total"+(qno+1)).value);
+                    if(total > x1)
+                        document.getElementById("maxtotal"+(b)).value = Number(total);
+                    else
+                        document.getElementById("maxtotal"+(b)).value = Number(x1);
+                    //ftotal = ftotal + Number(document.getElementById("maxtotal"+(b)).value);
+                }
+            }
+       // document.getElementById("FinalTotal").value = ftotal;
+        getTotal();
+}
+function getTotal()
+{
+    ftotal=Number(0);
+    for(i=1;i<6;i++)
+        {
+            //console.log("Mt "+ parseInt(document.getElementById("maxtotal"+parseInt(i)).value))
+            console.log("abc "+ "    "+typeof (document.getElementById("maxtotal"+parseInt(i)).value))
+            ftotal = ftotal + Number(document.getElementById("maxtotal"+parseInt(i)).value);
+            console.log("type" + "   " + typeof ftotal)
+            document.getElementById("FinalTotal").value = Number(ftotal);
+            console.log("heyyyyyy final"+"    "+document.getElementById("FinalTotal").value)
+        }
+}
+</script> 
+<body onload="mine()">
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Home</a>
+      </nav>
+    <!-- <input type="number" id="tab" name="tab" value="" onkeydown="myFunction(event)">  -->
+    <center>
+    <div class="container">
+        <form method="POST">            
+            {%  csrf_token %}
+            <!-- <h2>Evaluator1</h2><br> -->
+            <label for="findeval">Who Are You ?</label>
+            <select name="evaluator" id="evaluator">
+                <option value="Evaluator 1">Evaluator 1</option>
+                <option value="Evaluator 2">Evaluator 2</option>
+                <!-- <option value="evaluator3">Evaluator 3</option> -->
+            </select>
+            <br><br>
+            <label for="subcode" id="sbc" align="left">Subject Code:</label>
+            <input align="left" type="text" id="subcode" name="subcode" value={{subcode}} readonly>
+            <label align="left" for="sem" id="semid">Semester ID:</label>
+            <input align="left" type="text" id="sem" name="semester" value={{semid1}} readonly>
+            <label align="left" for="stuid" id="stu">Student ID:</label>
+            <input align="left" type="text" id="stuid" name="studentId" value={{studid1}} readonly><br><br>
+            <div class="form-group row">
+                    <table align="left">
+                        <th>1.</th>
+                        <th id="th11"></th>
+                        <th id="th12"></th>
+                        <th id="th13"></th>
+                        <th id="th14"></th>
+                        <th id="th15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.</th>
+                        <th id="th21"></th>
+                        <th id="th22"></th>
+                        <th id="th23"></th>
+                        <th id="th24"></th>
+                        <th id="th25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MaxTotal</th>
+                        <tr>
+                            <td></td>
+                            <td id="td11" oninput="getItem('q0',1,0)"></td>
+                            <td id="td12" oninput="getItem('q0',1,0)"></td>
+                            <td id="td13" oninput="getItem('q0',1,0)"></td>
+                            <td id="td14" oninput="getItem('q0',1,0)"></td>
+                            <td id="td15"></td>
+                            <td></td>
+                            <td id="td21" oninput="getItem('q1',2,1)"></td>
+                            <td id="td22" oninput="getItem('q1',2,1)"></td>
+                            <td id="td23" oninput="getItem('q1',2,1)"></td>
+                            <td id="td24" oninput="getItem('q1',2,1)"> </td>
+                            <td id="td25"></td> 
+                            <td id="td26"></td>
+                        </tr>
+                            <th>3.</th>
+                            <th id="th31"></th>
+                            <th id="th32"></th >
+                            <th id="th33"></th>
+                            <th id="th34"></th>
+                            <th id="th35">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.</th>
+                            <th id="th41"></th>
+                            <th id="th42"></th>
+                            <th id="th43"></th>
+                            <th id="th44"></th>
+                            <th id="th45">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MaxTotal</th>
+                         <tr>                            
+                            <td></td>
+                            <td id="td31" oninput="getItem('q2',3,2)"></td>
+                            <td id="td32" oninput="getItem('q2',3,2)"></td>
+                            <td id="td33" oninput="getItem('q2',3,2)"></td>
+                            <td id="td34" oninput="getItem('q2',3,2)"> </td>
+                            <td id="td35" ></td>
+                            <td></td>
+                            <td id="td41" oninput="getItem('q3',4,3)"></td>
+                            <td id="td42" oninput="getItem('q3',4,3)"></td>
+                            <td id="td43" oninput="getItem('q3',4,3)"></td>
+                            <td id="td44" oninput="getItem('q3',4,3)"></td> 
+                            <td id="td45"></td>
+                            <td id="td46"></td>                           
+                         </tr>
+                            <th>5.</th>
+                            <th id="th51"></th>
+                            <th id="th52"></th>
+                            <th id="th53"></th>
+                            <th id="th54"></th>
+                            <th id="th55">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.</th>
+                            <th id="th61"></th>
+                            <th id="th62"></th>
+                            <th id="th63"></th>
+                            <th id="th64"></th>
+                            <th id="th65">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MaxTotal</th>
+                         <tr>
+                            <td></td>
+                            <td id="td51" oninput="getItem('q4',5,4)"></td>
+                            <td id="td52" oninput="getItem('q4',5,4)"></td>
+                            <td id="td53" oninput="getItem('q4',5,4)"></td>
+                            <td id="td54" oninput="getItem('q4',5,4)"></td> 
+                            <td id="td55"></td>
+                            <td></td>
+                            <td id="td61" oninput="getItem('q5',6,5)"></td>
+                            <td id="td62" oninput="getItem('q5',6,5)"></td>
+                            <td id="td63" oninput="getItem('q5',6,5)"></td>
+                            <td id="td64" oninput="getItem('q5',6,5)"></td> 
+                            <td id="td65"></td>
+                            <td id="td66"></td>
+                         </tr>
+                            <th>7.</th>
+                            <th id="th71" ></th>
+                            <th id="th72" ></th>
+                            <th id="th73" ></th>
+                            <th id="th74" ></th>
+                            <th id="th75">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.</th>
+                            <th id="th81" ></th>
+                            <th id="th82" ></th>
+                            <th id="th83" ></th>
+                            <th id="th84" ></th>
+                            <th id="th85">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MaxTotal</th>
+                         <tr>
+                            <td></td>
+                            <td id="td71" oninput="getItem('q6',7,6)"></td>
+                            <td id="td72" oninput="getItem('q6',7,6)"></td>
+                            <td id="td73" oninput="getItem('q6',7,6)"></td>
+                            <td id="td74" oninput="getItem('q6',7,6)"></td> 
+                            <td id="td75"></td>
+                            <td></td>
+                            <td id="td81" oninput="getItem('q7',8,7)"></td>
+                            <td id="td82" oninput="getItem('q7',8,7)"></td>
+                            <td id="td83" oninput="getItem('q7',8,7)"></td>
+                            <td id="td84" oninput="getItem('q7',8,7)"></td> 
+                            <td id="td85"></td>
+                            <td id="td86"></td>
+                         </tr>
+                            <th>9.</th>
+                            <th id="th91"></th>
+                            <th id="th92"></th>
+                            <th id="th93"></th>
+                            <th id="th94"></th>
+                            <th id="th95">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.</th>
+                            <th id="th101"></th>
+                            <th id="th102"></th>
+                            <th id="th103"></th>
+                            <th id="th104"></th>
+                            <th id="th105">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MaxTotal</th>
+                         <tr>
+                            <td></td>
+                            <td id="td91" oninput="getItem('q8',9,8)"></td>
+                            <td id="td92" oninput="getItem('q8',9,8)"></td>
+                            <td id="td93" oninput="getItem('q8',9,8)"></td>
+                            <td id="td94" oninput="getItem('q8',9,8)"></td> 
+                            <td id="td95" ></td>
+                            <td></td>
+                            <td id="td101" oninput="getItem('q9',10,9)"></td>
+                            <td id="td102" oninput="getItem('q9',10,9)"></td>
+                            <td id="td103" oninput="getItem('q9',10,9)"></td>
+                            <td id="td104" oninput="getItem('q9',10,9)"></td> 
+                            <td id="td105"></td>
+                            <td id="td106"></td>
+                         </tr>
+                    </table>
+                
+            </div>   <br><br>            
+    </div>
+    <div id="final">
+        <p><b>FinalTotal</b></p>
+    </div><br>
+    <div class="form-group row">
+            <input class="btn btn-success" type="submit" name="submit" id="submit" value="submit">
+            <!-- <button type="button" class="btn btn-success">Submit</button> -->
+        </div>
+        <!-- <input type="text" onkeydown="func(event)"> -->
+    </center>
+    </form>
+    
+</body>
+</html>

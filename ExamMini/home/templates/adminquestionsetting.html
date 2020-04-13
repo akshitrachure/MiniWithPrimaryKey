@@ -1,0 +1,335 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>try</title>
+</head>
+<script>
+//p=0;
+var arr=[0,0,0,0,0,0,0,0,0,0];
+var arrays=[0,0,0,0,0,0,0,0,0,0];
+// var b=[0,0,0,0,0,0,0,0,0,0];
+ function display1(r,k)
+ {
+        if(arr[k-1]==0)
+        {
+                arrays[k-1]=r;
+                console.log("Entered")
+                a=document.getElementById("demo"+k);
+                arr[k-1]=1;
+                for(i=0;i<r;i++){
+                        //y=document.getElementById("main"+k);
+                        // a=document.getElementById("demo"+k);
+                       // y.appendChild(a);
+                        b=document.createElement("input");
+                        b.setAttribute("type","number");
+                        b.setAttribute("id","t"+(k)+(i+1));
+                        b.setAttribute("name","n"+(k)+(i+1));
+                        b.setAttribute("class","form-control");
+                        b.setAttribute("max","20");
+                        b.setAttribute("min","1");
+                        if(i==0)
+                                b.setAttribute("placeholder","A");
+                        else if(i==1)
+                                b.setAttribute("placeholder","B");
+                        else if(i==2)
+                                b.setAttribute("placeholder","C");
+                        else
+                                b.setAttribute("placeholder","D");  
+                        b.setAttribute("maxlength","2");                                
+                                //c.appendChild(b)
+                        a.appendChild(b);
+                }
+        }
+        else{
+                console.log("Entered2")
+                removeRow(arrays[k-1],k);
+                arr[k-1]=0;
+                display1(r,k);                
+        }
+}
+
+function removeRow(im,h) {
+        if((document.getElementById('demo'+h))){
+                for(i=0;i<im;i++){
+                var element = document.getElementById('t'+(h)+(i+1));
+                element.parentNode.removeChild(element);
+        }   
+        }
+                     
+}
+ function display2(r,k)
+ {    
+    display1(r,k);
+ }
+ function display3(r,k)
+ {
+    display1(r,k);
+ }
+ function display4(r,k)
+ {
+    display1(r,k);
+ }
+ function display5(r,k)
+ {
+    display1(r,k);
+ }
+ function display6(r,k)
+ {
+    display1(r,k);
+ }
+ function display7(r,k)
+ {
+    display1(r,k);
+ }
+ function display8(r,k)
+ {
+    display1(r,k);
+ }
+ function display9(r,k)
+ {
+    display1(r,k);
+ }
+ function display10(r,k)
+ {
+    display1(r,k);
+ }
+</script>
+<body>
+        <nav class="navbar navbar-dark bg-dark">
+                <a class="navbar-brand" href="/">Home</a>
+              </nav>
+    <div class="container">
+        <center><h1>Question Paper Pattern</h1></center>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                    <label for="nq1" name="nq1"><b><h4>1. Number of sub-questions</h4></b></label><br>                   
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <!-- <input class="btn btn-primary" type="button" value="1" onclick="display1(1,1)">
+                        <input class="btn btn-primary" type="button" value="2" onclick="display1(2,1)">
+                        <input class="btn btn-primary" type="button" value="3" onclick="display1(3,1)">
+                        <input class="btn btn-primary" type="button" value="4" onclick="display1(4,1)">-->
+                        <table>
+                                <thead>                                  
+                                  <th>&nbsp;&nbsp;1</th>
+                                  <th>&nbsp;&nbsp;2</th>
+                                  <th>&nbsp;&nbsp;3</th>
+                                  <th>&nbsp;&nbsp;4</th>
+                                </thead>
+                                <tr>
+                                  <td>&nbsp;&nbsp;<input id="1" type="radio" name="rad1" value="1" onchange="display1(1,1)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                  <td>&nbsp;&nbsp;<input id="2" type="radio" name="rad1" value="2" onchange="display1(2,1)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                  <td>&nbsp;&nbsp;<input id="3" type="radio" name="rad1" value="3" onchange="display1(3,1)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                  <td>&nbsp;&nbsp;<input id="4" type="radio" name="rad1" value="4" onchange="display1(4,1)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                </tr>
+                        </table>
+                    </div><br><br>  
+                    <div id="main1" class="form-group row">
+                        <div id="demo1" class="col-xs-1">
+
+                        </div> 
+                    </div>
+                                                 
+            </div>
+            <div class="form-group row">
+                    <label for="nq2" name="nq2"><b><h4>2. Number of sub-questions</h4></b></label><br>                   
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                            <table>
+                                    <thead>                                  
+                                      <th>&nbsp;&nbsp;1</th>
+                                      <th>&nbsp;&nbsp;2</th>
+                                      <th>&nbsp;&nbsp;3</th>
+                                      <th>&nbsp;&nbsp;4</th>
+                                    </thead>
+                                    <tr>
+                                      <td>&nbsp;&nbsp;<input id="1" type="radio" name="rad2" value="1" onchange="display1(1,2)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="2" type="radio" name="rad2" value="2" onchange="display1(2,2)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="3" type="radio" name="rad2" value="3" onchange="display1(3,2)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="4" type="radio" name="rad2" value="4" onchange="display1(4,2)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                    </tr>
+                            </table>
+                    </div><br><br>
+                    <div id="main2" class="form-group row"></div>
+                    <div id="demo2" class="col-xs-1"></div>                                  
+            </div>
+            <div class="form-group row">
+                    <label for="nq3"><b><h4>3. Number of sub-questions</h4></b></label><br>                   
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                            <table>
+                                    <thead>                                  
+                                      <th>&nbsp;&nbsp;1</th>
+                                      <th>&nbsp;&nbsp;2</th>
+                                      <th>&nbsp;&nbsp;3</th>
+                                      <th>&nbsp;&nbsp;4</th>
+                                    </thead>
+                                    <tr>
+                                      <td>&nbsp;&nbsp;<input id="1" type="radio" name="rad3" value="1" onchange="display1(1,3)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="2" type="radio" name="rad3" value="2" onchange="display1(2,3)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="3" type="radio" name="rad3" value="3" onchange="display1(3,3)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="4" type="radio" name="rad3" value="4" onchange="display1(4,3)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                    </tr>
+                            </table>
+                    </div>
+                    <br> <br>
+                    <div id="main3" class="form-group row"></div>
+                    <div id="demo3" class="col-xs-1"></div>                                
+            </div>
+            <div class="form-group row">
+                    <label for="nq4"><b><h4>4. Number of sub-questions</h4></b></label><br>                   
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                            <table>
+                                    <thead>                                  
+                                      <th>&nbsp;&nbsp;1</th>
+                                      <th>&nbsp;&nbsp;2</th>
+                                      <th>&nbsp;&nbsp;3</th>
+                                      <th>&nbsp;&nbsp;4</th>
+                                    </thead>
+                                    <tr>
+                                      <td>&nbsp;&nbsp;<input id="1" type="radio" name="rad4" value="1" onchange="display1(1,4)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="2" type="radio" name="rad4" value="2" onchange="display1(2,4)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="3" type="radio" name="rad4" value="3" onchange="display1(3,4)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="4" type="radio" name="rad4" value="4" onchange="display1(4,4)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                    </tr>
+                            </table>
+                    </div><br>    <br>
+                    <div id="main4" class="form-group row"></div>
+                    <div id="demo4" class="col-xs-1"></div>                              
+            </div>
+            <div class="form-group row">
+                    <label for="nq5"><b><h4>5. Number of sub-questions</h4></b></label><br>                   
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                            <table>
+                                    <thead>                                  
+                                      <th>&nbsp;&nbsp;1</th>
+                                      <th>&nbsp;&nbsp;2</th>
+                                      <th>&nbsp;&nbsp;3</th>
+                                      <th>&nbsp;&nbsp;4</th>
+                                    </thead>
+                                    <tr>
+                                      <td>&nbsp;&nbsp;<input id="1" type="radio" name="rad5" value="1" onchange="display1(1,5)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="2" type="radio" name="rad5" value="2" onchange="display1(2,5)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="3" type="radio" name="rad5" value="3" onchange="display1(3,5)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="4" type="radio" name="rad5" value="4" onchange="display1(4,5)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                    </tr>
+                            </table>
+                    </div><br><br>
+                    <div id="main5" class="form-group row"></div>
+                    <div id="demo5" class="col-xs-1"></div>                                  
+            </div>
+            <div class="form-group row">
+                    <label for="nq6"><b><h4>6. Number of sub-questions</h4></b></label><br>                   
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                            <table>
+                                    <thead>                                  
+                                      <th>&nbsp;&nbsp;1</th>
+                                      <th>&nbsp;&nbsp;2</th>
+                                      <th>&nbsp;&nbsp;3</th>
+                                      <th>&nbsp;&nbsp;4</th>
+                                    </thead>
+                                    <tr>
+                                      <td>&nbsp;&nbsp;<input id="1" type="radio" name="rad6" value="1" onchange="display1(1,6)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="2" type="radio" name="rad6" value="2" onchange="display1(2,6)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="3" type="radio" name="rad6" value="3" onchange="display1(3,6)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="4" type="radio" name="rad6" value="4" onchange="display1(4,6)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                    </tr>
+                            </table>
+                    </div><br><br>
+                    <div id="main6" class="form-group row"></div>
+                    <div id="demo6" class="col-xs-1"></div>                                  
+            </div>
+            <div class="form-group row">
+                    <label for="nq7"><b><h4><h4>7. Number of sub-questions</h4></h4></b></label><br>                   
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                            <table>
+                                    <thead>                                  
+                                      <th>&nbsp;&nbsp;1</th>
+                                      <th>&nbsp;&nbsp;2</th>
+                                      <th>&nbsp;&nbsp;3</th>
+                                      <th>&nbsp;&nbsp;4</th>
+                                    </thead>
+                                    <tr>
+                                      <td>&nbsp;&nbsp;<input id="1" type="radio" name="rad7" value="1" onchange="display1(1,7)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="2" type="radio" name="rad7" value="2" onchange="display1(2,7)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="3" type="radio" name="rad7" value="3" onchange="display1(3,7)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="4" type="radio" name="rad7" value="4" onchange="display1(4,7)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                    </tr>
+                            </table>
+                    </div><br> <br>
+                    <div id="main7" class="form-group row"></div>
+                    <div id="demo7" class="col-xs-1"></div>                               
+            </div>
+            <div class="form-group row">
+                    <label for="nq8"><b><h4>8. Number of sub-questions</h4></b></label><br>                   
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                            <table>
+                                    <thead>                                  
+                                      <th>&nbsp;&nbsp;1</th>
+                                      <th>&nbsp;&nbsp;2</th>
+                                      <th>&nbsp;&nbsp;3</th>
+                                      <th>&nbsp;&nbsp;4</th>
+                                    </thead>
+                                    <tr>
+                                      <td>&nbsp;&nbsp;<input id="1" type="radio" name="rad8" value="1" onchange="display1(1,8)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="2" type="radio" name="rad8" value="2" onchange="display1(2,8)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="3" type="radio" name="rad8" value="3" onchange="display1(3,8)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="4" type="radio" name="rad8" value="4" onchange="display1(4,8)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                    </tr>
+                            </table>
+                    </div><br> <br>
+                    <div id="main8" class="form-group row"></div>
+                    <div id="demo8" class="col-xs-1"></div>                                 
+            </div>
+            <div class="form-group row">
+                    <label for="nq9"><b><h4>9. Number of sub-questions</h4></b></label><br>                   
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                            <table>
+                                    <thead>                                  
+                                      <th>&nbsp;&nbsp;1</th>
+                                      <th>&nbsp;&nbsp;2</th>
+                                      <th>&nbsp;&nbsp;3</th>
+                                      <th>&nbsp;&nbsp;4</th>
+                                    </thead>
+                                    <tr>
+                                      <td>&nbsp;&nbsp;<input id="1" type="radio" name="rad9" value="1" onchange="display1(1,9)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="2" type="radio" name="rad9" value="2" onchange="display1(2,9)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="3" type="radio" name="rad9" value="3" onchange="display1(3,9)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="4" type="radio" name="rad9" value="4" onchange="display1(4,9)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                    </tr>
+                            </table>
+                    </div><br><br>
+                    <div id="main9" class="form-group row"></div>
+                    <div id="demo9" class="col-xs-1"></div>                                 
+            </div>
+            <div class="form-group row">
+                    <label id="myid" for="nq10"><b><h4>10. Number of sub-questions</h4></b></label><br>                   
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                            <table>
+                                    <thead>                                  
+                                      <th>&nbsp;&nbsp;1</th>
+                                      <th>&nbsp;&nbsp;2</th>
+                                      <th>&nbsp;&nbsp;3</th>
+                                      <th>&nbsp;&nbsp;4</th>
+                                    </thead>
+                                    <tr>
+                                      <td>&nbsp;&nbsp;<input id="1" type="radio" name="rad10" value="1" onchange="display1(1,10)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="2" type="radio" name="rad10" value="2" onchange="display1(2,10)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="3" type="radio" name="rad10" value="3" onchange="display1(3,10)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                      <td>&nbsp;&nbsp;<input id="4" type="radio" name="rad10" value="4" onchange="display1(4,10)" style="height:16px;width:16px;vertical-align:middle;"required></input></td>
+                                    </tr>
+                            </table>
+                    </div><br><br>
+                    <div id="main10" class="form-group row"></div>
+                    <div id="demo10" class="col-xs-1"></div>                                 
+            </div>
+            
+                <center><input type="submit" name="submit" class="btn btn-success btn-lg "></center>    
+            </div> 
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Admin Login</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <style>
+      .container {
+        padding-top: 50px;
+        padding-left: 200px;
+        padding-right: 200px;
+      }
+    </style>
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="/">Back<span class="sr-only">(current)</span></a>
+            </li>
+            
+               
+              </div>
+            </div>
+          </nav> -->
+
+    <!-- Image and text -->
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Home</a>
+    </nav>
+    <!-- <center><br><br><br>
+        <form>
+            <div class="form-group">
+                <label for="username">UserName :</label>
+                <input type="text" class="form-control" id="username" placeholder="username" required>
+            </div><br>
+            <div class="form-group">
+                <label for="password">Password :</label>
+                <input type="password" class="form-control" id="password" value="" required>
+            </div><br>
+            <a class="btn btn-primary" href="C:\Users\Raja\EXAM PROJECT\link.html">Submit</a>
+                     <button type="submit" class="btn btn-primary">Submit</button> 
+        </form>
+    </center> -->
+    <center>
+      <div class="container">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col">
+            <!-- <img src="/static/logo.png" alt="image not found" width="200" height="200" class="ml-5"> -->
+            <p class="h2 text-uppercase mb- text-center text-info">
+              Admin Login
+            </p>
+            <form method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="username">Username:</label>
+                <input
+                  id="username"
+                  type="text"
+                  class="form-control"
+                  name="username"
+                  placeholder="Username"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  placeholder=""
+                  required
+                />
+              </div>
+              {% if messages %}
+                  {% for r in messages %}
+                      <div class="alert alert-primary" role="alert">
+                          <center>{{r}}</center> 
+                      </div>
+                  {% endfor %}
+                {% endif %}
+              <div class="form-group">
+                <input
+                  class="btn btn-primary"
+                 
+                  type="submit"
+                  name="submit"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="col"></div>
+        </div>
+      </div>
+    </center>
+  </body>
+</html>
